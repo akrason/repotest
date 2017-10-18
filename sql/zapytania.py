@@ -5,11 +5,26 @@
 
 import sqlite3
 
+def kw_c(cur):
+
+    cur.execute("""
+        SELECT SUM(placa) FROM pracownicy
+    """)
+
+    wyniki = cur.fetchall()
+    for rekord in wyniki:
+        print(tuple(rekord))
 
 def kw_d(cur):
+    parametr = input('Podaj nazwę działu: ')
+    #parametr2 = input('Kobiety czy mężczyźni? ')
     cur.execute("""
-        SELECT * FROM pracownicy
-    """)
+        SELECT dzial.id, dzial.nazwa, nazwisko, imie 
+        FROM dzial, pracownicy
+        WHERE dzial.id = pracownicy.id_dzial
+        AND dzial.nazwa = ?
+        AND imie NOT LIKE'%a'
+    """, (parametr,))
 
     wyniki = cur.fetchall()
     for rekord in wyniki:
