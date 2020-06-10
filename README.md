@@ -1,4 +1,4 @@
-Pierwsze repozytorium
-####################
+#Pierwsze repozytorium
 
-Moje skrypty i programy
+Repozytorium z zajęć z informatyki z liceum
+
